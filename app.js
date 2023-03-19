@@ -10,7 +10,7 @@ const productos = [
 let carrito = [];
 
 // DIALOGO CON EL COMPRADOR
-let seleccion = prompt("Hola, deseas adquirir algun servicio?")
+let seleccion = prompt("Bienvenido a Serendipia Servicio de terapias en rehabilitacion para niños, deseas adquirir algun servicio?")
 
 while (seleccion != "si" && seleccion != "no") {
 alert("porfavor ingresa si o no")
@@ -20,7 +20,7 @@ seleccion = prompt ("Hola desea comprar algo si o no")
 // MOSTRAR PRODUCTOS
 
 if(seleccion = "si"){
-    alert("A continuacion nuestra lista de servicios")
+    alert("A continuacion nuestra lista de servicios terapeuticos")
     let todoslosServicios = productos.map((producto) => producto.nombre + " " + producto.precio + "$" );
     alert (todoslosServicios.join(" - "))
 } else if (seleccion == "no"){
@@ -62,12 +62,13 @@ while (seleccion != "no") {
         }
     }
 
-    // MOSTRAR TOTAL
 
-    const total = carrito.reduce((ecc, el) => ecc + el.precio * el.unidades, 0)
-    console.log(`el total a pagar por sus servicios es: ${total}`)
+    function calcularTotal(carrito) {
+        return carrito.reduce((total, producto) => total + (producto.precio * producto.unidades), 0);
+    };
+    document.write(`El total a pagar por sus servicios es: ${calcularTotal(carrito)}`);
 
-    
+
 
 
 
